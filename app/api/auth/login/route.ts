@@ -11,7 +11,6 @@ export const POST = asyncHandler(async (req: NextRequest) => {
   const validatedData = loginSchema.parse(body);
   const user = await User.findOne({ email: validatedData.email }).select('+password');
   
-  // console.log(validatedData.password)
   if (!user || !(await user.comparePassword(validatedData.password))) {
     return NextResponse.json(
       { success: false, message: 'Invalid credentials' },

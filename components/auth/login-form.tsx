@@ -36,7 +36,6 @@ export function LoginForm() {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(values),
             });
-            console.log(response);
             const data = await response.json();
             if (!response.ok) {
                 throw new Error(data.message || 'Something went wrong');

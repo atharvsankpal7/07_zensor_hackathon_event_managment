@@ -11,7 +11,6 @@ export const asyncHandler = (fn: AsyncFunction) => {
     try {
       return await fn(req, res, ...args);
     } catch (error: any) {
-      console.error('Error:', error);
       return NextResponse.json(
         {
           success: false,
